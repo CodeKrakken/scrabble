@@ -48,24 +48,24 @@ Game.prototype.pick = function(howMany) {
   console.log(this.rack)
 }
 
-Game.prototype.makeWords = function(str, index, buffer) {
-  str = str.split("");
+Game.prototype.makeWords = function(nonWord) {
+  nonWord = nonWord.split("");
   let anagrams = []
-  for (var i = 0; i < str.length; i++) {
-    for (var j = 0; j < str.length; j++) {
-      if (i != j) { anagrams.push(this.toggleLetters(str, i, j)) }
+  for (let i = 0; i < nonWord.length; i++) {
+    for (let j = 0; j < nonWord.length; j++) {
+      if (i != j) { anagrams.push(this.swapLetters(nonWord, i, j)) }
     }
   }
   return this.output(anagrams)
 }
 
-Game.prototype.toggleLetters = function(str, index1, index2) {
-  if (index1 != index2) {
-      var temp = str[index1];
-      str[index1] = str[index2];
-      str[index2] = temp;
+Game.prototype.swapLetters = function(nonWord, i, j) {
+  if (i != j) {
+      let holder = nonWord[i];
+      nonWord[i] = nonWord[j];
+      nonWord[j] = holder;
   }
-  return str.join("");
+  return nonWord.join("");
 }
 
 Game.prototype.score = function(word) {
