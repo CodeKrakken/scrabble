@@ -48,6 +48,15 @@ Game.prototype.pick = function(howMany) {
   console.log(this.rack)
 }
 
+Game.prototype.score = function(word) {
+  total = 0
+  wordArray = word.split('')
+  wordArray.forEach(letter => {
+    total += this.letterValues[letter]
+  })
+  return this.output(total)
+}
+
 Game.prototype.getValue = function(letter) {
   value = this.letterValues[letter]
   return this.output(value)

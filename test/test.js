@@ -41,4 +41,8 @@ describe('game', function() {
   it('can fetch the score of a letter', function() {
     expect(game.getValue('E')).toEqual(1)
   })
+
+  it('can calculate the score of a word', function() {
+    expect(game.score('GUARDIAN')).toEqual(10)
+  })
 })
