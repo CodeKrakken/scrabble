@@ -64,4 +64,8 @@ describe('game', function() {
     expect(game.checkWord('BUNGE')).toEqual(false)
   })
 
+  it('returns longest valid word from letter selection', function() {
+    expect(game.returnLongest('leg')).toEqual('leg')
+  })
+
 })

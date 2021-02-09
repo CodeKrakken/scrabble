@@ -57,13 +57,15 @@ Game.prototype.makeWords = function(nonWord) {
   for (let i = 0; i < nonWord.length; i++) {
     for (let j = 0; j < nonWord.length; j++) {
       newWord = this.swapLetters(nonWord, i, j)
-      if (i != j && this.checkWord(newWord)) { anagrams.push(newWord) }
+      if (this.checkWord(newWord)) { anagrams.push(newWord) }
+      console.log(newWord)
     }
   }
   return this.output(anagrams)
 }
 
 Game.prototype.swapLetters = function(nonWord, i, j) {
+
   if (i != j) {
       let holder = nonWord[i];
       nonWord[i] = nonWord[j];
@@ -74,6 +76,11 @@ Game.prototype.swapLetters = function(nonWord, i, j) {
 
 Game.prototype.checkWord = function(word) {
   return this.dictionary.includes(word.toLowerCase())
+}
+
+Game.prototype.returnLongest = function(word) {
+  words = this.makeWords(word)
+  return words
 }
 
 Game.prototype.score = function(word) {
