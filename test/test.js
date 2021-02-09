@@ -45,4 +45,9 @@ describe('game', function() {
   it('can calculate the score of a word', function() {
     expect(game.score('GUARDIAN')).toEqual(10)
   })
+
+  it('can return an array of anagrams', function() {
+    expect(game.findWords('EB')).toEqual(['BE', 'EB'])
+    expect(game.findWords('GET')).toEqual(['EGT', 'TGE', 'GTE', 'GET', 'TEG', 'TGE'])
+  })
 })

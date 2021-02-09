@@ -48,6 +48,33 @@ Game.prototype.pick = function(howMany) {
   console.log(this.rack)
 }
 
+Game.prototype.findWords = function(str, index, buffer) {
+  console.log(typeof str)
+  if (typeof str == "string")
+      str = str.split("");
+  if (typeof index == "undefined")
+      index = 0;
+  if (typeof buffer == "undefined")
+      buffer = [];
+  if (index >= str.length)
+      return buffer;
+  for (var i = 0; i < str.length; i++) {
+    for (var j = 0; j < str.length; j++) {
+      if (i != j) { buffer.push(this.toggleLetters(str, i, j)) }
+    }
+  }
+  return this.output(buffer)
+}
+
+Game.prototype.toggleLetters = function(str, index1, index2) {
+  if (index1 != index2) {
+      var temp = str[index1];
+      str[index1] = str[index2];
+      str[index2] = temp;
+  }
+  return str.join("");
+}
+
 Game.prototype.score = function(word) {
   total = 0
   wordArray = word.split('')
