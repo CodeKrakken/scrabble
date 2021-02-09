@@ -65,7 +65,7 @@ describe('game', function() {
   })
 
   it('returns longest valid word from letter selection', function() {
-    expect(game.returnLongest('leg')).toEqual('leg')
+    expect(game.returnLongest('CRADDLESHUFT')).toEqual('leg')
   })
 
 })

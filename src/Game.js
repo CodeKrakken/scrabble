@@ -53,14 +53,22 @@ Game.prototype.pick = function(howMany) {
 
 Game.prototype.makeWords = function(nonWord) {
   nonWord = nonWord.split("");
+  heldWord = nonWord.slice(0, nonWord.length)
   let anagrams = []
-  for (let i = 0; i < nonWord.length; i++) {
-    for (let j = 0; j < nonWord.length; j++) {
-      newWord = this.swapLetters(nonWord, i, j)
-      if (this.checkWord(newWord)) { anagrams.push(newWord) }
-      console.log(newWord)
+  for (let h = nonWord.length; h >= 0; h--) {
+    for (let i = 0; i < nonWord.length; i++) {
+      for (let j = 0; j < nonWord.length; j++) {
+        newWord = this.swapLetters(nonWord, i, j)
+        console.log(newWord)
+        // if (this.checkWord(newWord)) { 
+          anagrams.push(newWord) 
+        // }
+      }
     }
+    nonWord = heldWord.slice(0, heldWord.length)
+    nonWord.splice(h, 1)
   }
+  
   return this.output(anagrams)
 }
 
