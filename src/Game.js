@@ -56,7 +56,8 @@ Game.prototype.makeWords = function(nonWord) {
   let anagrams = []
   for (let i = 0; i < nonWord.length; i++) {
     for (let j = 0; j < nonWord.length; j++) {
-      if (i != j) { anagrams.push(this.swapLetters(nonWord, i, j)) }
+      newWord = this.swapLetters(nonWord, i, j)
+      if (i != j && this.checkWord(newWord)) { anagrams.push(newWord) }
     }
   }
   return this.output(anagrams)

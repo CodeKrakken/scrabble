@@ -46,9 +46,9 @@ describe('game', function() {
     expect(game.score('GUARDIAN')).toEqual(10)
   })
 
-  it('can return an array of anagrams', function() {
-    expect(game.makeWords('EB')).toEqual(['BE', 'EB'])
-    expect(game.makeWords('GET')).toEqual(['EGT', 'TGE', 'GTE', 'GET', 'TEG', 'TGE'])
+  it('can return an array of real anagrams', function() {
+    expect(game.makeWords('BE')).toEqual(['BE'])
+    expect(game.makeWords('GET')).toEqual(['GET', 'TEG'])
   })
 
   it('has a dictionary array', function() {
@@ -61,5 +61,7 @@ describe('game', function() {
 
   it('can tell a real word from a false one according to its dictionary', function() {
     expect(game.checkWord('SPANNER')).toEqual(true)
+    expect(game.checkWord('BUNGE')).toEqual(false)
   })
+
 })
