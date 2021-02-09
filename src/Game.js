@@ -71,6 +71,10 @@ Game.prototype.swapLetters = function(nonWord, i, j) {
   return nonWord.join("");
 }
 
+Game.prototype.checkWord = function(word) {
+  return this.dictionary.includes(word.toLowerCase())
+}
+
 Game.prototype.score = function(word) {
   total = 0
   wordArray = word.split('')

@@ -59,5 +59,7 @@ describe('game', function() {
     expect(game.dictionary).not.toEqual('')
   })
 
-  it
+  it('can tell a real word from a false one according to its dictionary', function() {
+    expect(game.checkWord('SPANNER')).toEqual(true)
+  })
 })
