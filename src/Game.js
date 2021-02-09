@@ -31,7 +31,7 @@ function Game(){
   },
   this.bag = 'EEEEEEEEEEEEAAAAAAAAAIIIIIIIIIOOOOOOOONNNNNNRRRRRRTTTTTTLLLLSSSSUUUUDDDDGGGBBCCMMPPFFHHVVWWYYKJXQZ'.split('')
   this.rack = []
-  this.dictionary = fs.readFileSync('dictionary.txt', 'utf8')
+  this.dictionary = fs.readFileSync('dictionary.txt', 'utf8').split('\n')
 }
 
 Game.prototype.size = function(object) {
