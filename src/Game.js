@@ -26,7 +26,9 @@ function Game(){
     'X' : 8,
     'Y' : 4,
     'Z' : 10
-  }
+  },
+  this.bag = 'EEEEEEEEEEEEAAAAAAAAAIIIIIIIIIOOOOOOOONNNNNNRRRRRRTTTTTTLLLLSSSSUUUUDDDDGGGBBCCMMPPFFHHVVWWYYKJXQZ'.split('')
+  this.rack = []
 }
 
 Game.prototype.size = function(object) {
@@ -37,5 +39,12 @@ Game.prototype.size = function(object) {
   }
   return size;
 };
+
+Game.prototype.pick = function(howMany) {
+  for(i=0;i<howMany;i++) {
+    index = Math.floor(Math.random() * this.bag.length)
+    this.rack.push(this.bag.splice(index, 1))
+  }
+}
 
 module.exports = Game

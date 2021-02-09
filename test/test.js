@@ -19,4 +19,22 @@ describe('game', function() {
   it('has letter values defined in its hash', function() {
     expect(game.size(game.letterValues)).toEqual(26)
   })
+
+  it('has a bag of letters', function() {
+    expect(game.bag).toBeDefined()
+  })
+
+  it('can remove a letter from the bag', function() {
+    game.pick(1)
+    expect(game.bag.length).toEqual(97)
+  })
+
+  it('has a rack', function() {
+    expect(game.rack).toBeDefined()
+  })
+
+  it('puts a letter from the bag into the rack', function() {
+    game.pick(1)
+    expect(game.rack.length).toBeGreaterThan(0)
+  })
 })
