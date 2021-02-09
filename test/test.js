@@ -51,7 +51,11 @@ describe('game', function() {
     expect(game.makeWords('GET')).toEqual(['EGT', 'TGE', 'GTE', 'GET', 'TEG', 'TGE'])
   })
 
-  it('can seacrch the dictionary file for a word', function() {
+  it('has a dictionary file', function() {
+    expect(game.dictionary).toBeDefined()
+  })
 
+  it('has text in its dictionary file', function() {
+    expect(game.dictionary).not.toEqual('')
   })
 })

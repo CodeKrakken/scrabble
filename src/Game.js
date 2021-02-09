@@ -1,3 +1,5 @@
+fs = require('fs')
+
 function Game(){
   this.letterValues = {
     'A' : 1,
@@ -29,6 +31,7 @@ function Game(){
   },
   this.bag = 'EEEEEEEEEEEEAAAAAAAAAIIIIIIIIIOOOOOOOONNNNNNRRRRRRTTTTTTLLLLSSSSUUUUDDDDGGGBBCCMMPPFFHHVVWWYYKJXQZ'.split('')
   this.rack = []
+  this.dictionary = fs.readFileSync('dictionary.txt', 'utf8')
 }
 
 Game.prototype.size = function(object) {
