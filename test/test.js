@@ -37,4 +37,8 @@ describe('game', function() {
     game.pick(1)
     expect(game.rack.length).toBeGreaterThan(0)
   })
+
+  it('can fetch the score of a letter', function() {
+    expect(game.getValue('E')).toEqual(1)
+  })
 })

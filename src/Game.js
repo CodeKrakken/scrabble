@@ -43,8 +43,19 @@ Game.prototype.size = function(object) {
 Game.prototype.pick = function(howMany) {
   for(i=0;i<howMany;i++) {
     index = Math.floor(Math.random() * this.bag.length)
-    this.rack.push(this.bag.splice(index, 1))
+    this.rack.push(this.bag.splice(index, 1)[0])
   }
+  console.log(this.rack)
+}
+
+Game.prototype.getValue = function(letter) {
+  value = this.letterValues[letter]
+  return this.output(value)
+}
+
+Game.prototype.output = function(data) {
+  console.log(data)
+  return data
 }
 
 module.exports = Game
