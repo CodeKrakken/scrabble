@@ -48,22 +48,15 @@ Game.prototype.pick = function(howMany) {
   console.log(this.rack)
 }
 
-Game.prototype.findWords = function(str, index, buffer) {
-  console.log(typeof str)
-  if (typeof str == "string")
-      str = str.split("");
-  if (typeof index == "undefined")
-      index = 0;
-  if (typeof buffer == "undefined")
-      buffer = [];
-  if (index >= str.length)
-      return buffer;
+Game.prototype.makeWords = function(str, index, buffer) {
+  str = str.split("");
+  let anagrams = []
   for (var i = 0; i < str.length; i++) {
     for (var j = 0; j < str.length; j++) {
-      if (i != j) { buffer.push(this.toggleLetters(str, i, j)) }
+      if (i != j) { anagrams.push(this.toggleLetters(str, i, j)) }
     }
   }
-  return this.output(buffer)
+  return this.output(anagrams)
 }
 
 Game.prototype.toggleLetters = function(str, index1, index2) {

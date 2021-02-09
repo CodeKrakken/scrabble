@@ -47,7 +47,11 @@ describe('game', function() {
   })
 
   it('can return an array of anagrams', function() {
-    expect(game.findWords('EB')).toEqual(['BE', 'EB'])
-    expect(game.findWords('GET')).toEqual(['EGT', 'TGE', 'GTE', 'GET', 'TEG', 'TGE'])
+    expect(game.makeWords('EB')).toEqual(['BE', 'EB'])
+    expect(game.makeWords('GET')).toEqual(['EGT', 'TGE', 'GTE', 'GET', 'TEG', 'TGE'])
+  })
+
+  it('can seacrch the dictionary file for a word', function() {
+
   })
 })
